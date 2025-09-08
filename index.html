@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>นิเทศศาสตร์ดิจิทัลมัลติมีเดีย | มหาวิทยาลัยราชภัฏเชียงราย</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Kanit', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .hero-video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Header & Navigation -->
+    <header id="header" class="bg-transparent fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#home" class="text-white flex items-baseline space-x-3 group">
+                <span class="text-2xl font-bold group-hover:text-yellow-300 transition">DM CRRU</span>
+                <span id="logo-subtitle" class="hidden md:block text-sm border-l-2 border-white/50 pl-3 transition">นิเทศศาสตร์ดิจิทัลมัลติมีเดีย</span>
+            </a>
+            <div class="hidden lg:flex space-x-8 items-center">
+                <a href="#about" class="text-white hover:text-yellow-300 transition">เกี่ยวกับเรา</a>
+                <a href="#alumni-works" class="text-white hover:text-yellow-300 transition">ผลงานศิษย์เก่า</a>
+                <a href="#alumni-voices" class="text-white hover:text-yellow-300 transition">ประสบการณ์</a>
+                <a href="#news" class="text-white hover:text-yellow-300 transition">ข่าวสาร</a>
+                <a href="#admissions" class="text-white hover:text-yellow-300 transition">การรับสมัคร</a>
+                <a href="#contact" class="text-white hover:text-yellow-300 transition">ติดต่อเรา</a>
+            </div>
+            <button id="mobile-menu-button" class="lg:hidden text-white">
+                <i data-lucide="menu"></i>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white text-gray-800">
+            <a href="#about" class="block py-2 px-6 hover:bg-gray-100">เกี่ยวกับเรา</a>
+            <a href="#alumni-works" class="block py-2 px-6 hover:bg-gray-100">ผลงานศิษย์เก่า</a>
+            <a href="#alumni-voices" class="block py-2 px-6 hover:bg-gray-100">ประสบการณ์</a>
+            <a href="#news" class="block py-2 px-6 hover:bg-gray-100">ข่าวสาร</a>
+            <a href="#admissions" class="block py-2 px-6 hover:bg-gray-100">การรับสมัคร</a>
+            <a href="#contact" class="block py-2 px-6 hover:bg-gray-100">ติดต่อเรา</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- 1. หน้าแรก (Home) -->
+        <section id="home" class="relative h-screen w-full flex items-center justify-center text-white text-center overflow-hidden">
+            <video id="hero-video" autoplay loop muted playsinline class="absolute top-0 left-0 w-full h-full object-cover">
+                <!-- หมายเหตุ: กรุณาเปลี่ยน URL วิดีโอเป็นของคุณ -->
+                <source src="assets/เธอไม่ได้สอนให้ฉันอยู่คนเดียว - Sherry - Unofficial MV.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div id="video-overlay" class="hero-video-overlay cursor-pointer"></div>
+            <div class="relative z-10 p-6">
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-4 leading-tight" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.7);">นักสื่อสารสร้างสรรค์แห่งอนาคต</h1>
+                <p class="text-lg md:text-xl max-w-2xl mx-auto mb-8" style="text-shadow: 1px 1px 4px rgba(0,0,0,0.7);">ที่ DM CRRU เราสร้างนักนิเทศศาสตร์ยุคใหม่ ที่เชี่ยวชาญการสื่อสารด้วยสื่อดิจิทัลมัลติมีเดียอย่างรอบด้าน</p>
+                <div class="space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#about" class="inline-block bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105">รู้จักเรา</a>
+                    <a href="#alumni-works" class="inline-block bg-transparent border-2 border-white hover:bg-white hover:text-gray-900 font-bold py-3 px-8 rounded-full text-lg transition duration-300">ชมผลงานรุ่นพี่</a>
+                </div>
+            </div>
+            <div id="video-controls" class="absolute bottom-6 right-6 z-20">
+                <button id="mute-button" class="bg-black/30 text-white p-3 rounded-full hover:bg-black/50 transition focus:outline-none">
+                    <i id="volume-icon" data-lucide="volume-x"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- 2. เกี่ยวกับคณะ (About Us) -->
+        <section id="about" class="py-20 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-2">ที่มาและความมุ่งมั่นของเรา</h2>
+                <p class="text-lg text-gray-500 mb-12">สร้างนักนิเทศศาสตร์มืออาชีพที่เท่าทันโลกสื่อดิจิทัล</p>
+                
+                <div class="text-left max-w-4xl mx-auto text-gray-600 space-y-6 mb-16">
+                    <p>สาขาวิชานิเทศศาสตร์ดิจิทัลมัลติมีเดีย มหาวิทยาลัยราชภัฏเชียงราย มุ่งผลิตบัณฑิตนักสื่อสารมืออาชีพ ที่มีความคิดสร้างสรรค์ เชี่ยวชาญทักษะการผลิตสื่อดิจิทัลที่หลากหลาย และเท่าทันการเปลี่ยนแปลงของภูมิทัศน์สื่อ เราสร้างบัณฑิตให้เป็นนักปฏิบัติ ที่พร้อมสร้างสรรค์ผลงานคุณภาพสู่อุตสาหกรรมสื่อดิจิทัลและแวดวงวิชาชีพที่เกี่ยวข้อง</p>
+                </div>
+
+                <!-- จุดแข็ง -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+                    <div class="flex flex-col items-center">
+                        <div class="bg-yellow-100 text-yellow-600 p-4 rounded-full mb-4">
+                            <i data-lucide="book-open-check" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">หลักสูตรเน้นปฏิบัติ</h3>
+                        <p class="text-gray-600">เรียนรู้ผ่านการลงมือทำจริง สร้างสรรค์ผลงานได้ตั้งแต่ปี 1 จนถึงปีสุดท้าย</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="bg-green-100 text-green-600 p-4 rounded-full mb-4">
+                            <i data-lucide="users" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">คณาจารย์มืออาชีพ</h3>
+                        <p class="text-gray-600">เรียนกับตัวจริงในวงการสื่อ ที่พร้อมถ่ายทอดความรู้และประสบการณ์อย่างใกล้ชิด</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="bg-blue-100 text-blue-600 p-4 rounded-full mb-4">
+                            <i data-lucide="cpu" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">อุปกรณ์และสตูดิโอ</h3>
+                        <p class="text-gray-600">สตูดิโอผลิตสื่อครบวงจร พร้อมอุปกรณ์ที่ทันสมัย รองรับการสร้างสรรค์งานทุกรูปแบบ</p>
+                    </div>
+                </div>
+
+                <!-- Gallery -->
+                <div class="mt-20">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-8">บรรยากาศการเรียนรู้ที่ DM CRRU</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <img src="https://placehold.co/600x400/FBBF24/333?text=Workshop" class="rounded-lg shadow-md hover:shadow-xl transition transform hover:-translate-y-1" alt="บรรยากาศ Workshop">
+                        <img src="https://placehold.co/600x800/34D399/333?text=Studio+Time" class="rounded-lg shadow-md hover:shadow-xl transition transform hover:-translate-y-1 col-span-1 row-span-2" alt="สตูดิโอถ่ายทำ">
+                        <img src="https://placehold.co/600x400/60A5FA/333?text=Classroom" class="rounded-lg shadow-md hover:shadow-xl transition transform hover:-translate-y-1" alt="ห้องเรียน">
+                        <img src="https://placehold.co/600x400/A78BFA/333?text=Teamwork" class="rounded-lg shadow-md hover:shadow-xl transition transform hover:-translate-y-1" alt="กิจกรรมนักศึกษา">
+                        <img src="assets/111.jpg" class="rounded-lg shadow-md hover:shadow-xl transition transform hover:-translate-y-1" alt="งานแสดงผลงาน">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. ผลงานศิษย์เก่า (Alumni Works) -->
+        <section id="alumni-works" class="py-20">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-2">ผลงานเด่นจากรุ่นพี่</h2>
+                <p class="text-lg text-gray-500 mb-12">ความภาคภูมิใจและแรงบันดาลใจจากครอบครัว DM CRRU</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Portfolio Card 1 -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden group transform hover:-translate-y-2 transition duration-300">
+                        <div class="relative">
+                            <img src="https://placehold.co/600x400/333/FFF?text=หนังสั้น" alt="หนังสั้น" class="w-full h-48 object-cover">
+                            <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                                <a href="#" class="text-white border-2 border-white py-2 px-4 rounded-full hover:bg-white hover:text-black">ชมผลงาน</a>
+                            </div>
+                        </div>
+                        <div class="p-6 text-left">
+                            <h3 class="text-xl font-bold text-gray-800">หนังสั้น "แสงสุดท้าย"</h3>
+                            <p class="text-gray-500 mb-2">ทีมงาน DM รุ่น 64</p>
+                            <p class="text-gray-600 text-sm">"โปรเจกต์จบที่สอนให้เรารู้จักการทำงานเป็นทีม และการแก้ปัญหาเฉพาะหน้าอย่างแท้จริง"</p>
+                        </div>
+                    </div>
+                    <!-- Portfolio Card 2 -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden group transform hover:-translate-y-2 transition duration-300">
+                        <div class="relative">
+                            <img src="https://placehold.co/600x400/555/FFF?text=แคมเปญออนไลน์" alt="แคมเปญออนไลน์" class="w-full h-48 object-cover">
+                             <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                                <a href="#" class="text-white border-2 border-white py-2 px-4 rounded-full hover:bg-white hover:text-black">ชมผลงาน</a>
+                            </div>
+                        </div>
+                        <div class="p-6 text-left">
+                            <h3 class="text-xl font-bold text-gray-800">แคมเปญการตลาดดิจิทัล</h3>
+                            <p class="text-gray-500 mb-2">สมหญิง รักเรียน - รุ่น 63</p>
+                            <p class="text-gray-600 text-sm">"นำความรู้จากวิชาการสื่อสารการตลาดดิจิทัลมาใช้สร้างแคมเปญจริง ได้ผลตอบรับดีเกินคาด"</p>
+                        </div>
+                    </div>
+                    <!-- Portfolio Card 3 -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden group transform hover:-translate-y-2 transition duration-300">
+                        <div class="relative">
+                            <img src="https://placehold.co/600x400/777/FFF?text=สารคดี" alt="สารคดี" class="w-full h-48 object-cover">
+                             <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                                <a href="#" class="text-white border-2 border-white py-2 px-4 rounded-full hover:bg-white hover:text-black">ชมผลงาน</a>
+                            </div>
+                        </div>
+                        <div class="p-6 text-left">
+                            <h3 class="text-xl font-bold text-gray-800">สารคดี "วิถีชุมชน"</h3>
+                            <p class="text-gray-500 mb-2">มานะ สร้างสรรค์ - รุ่น 63</p>
+                            <p class="text-gray-600 text-sm">"การได้ลงพื้นที่และเล่าเรื่องราวของผู้คน คือประสบการณ์ที่ล้ำค่าที่สุดจากการเรียนที่นี่"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. ประสบการณ์จากศิษย์เก่า (Alumni Voices) -->
+        <section id="alumni-voices" class="py-20 bg-gray-900 text-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-2">เสียงจากรุ่นพี่ DM CRRU</h2>
+                <p class="text-lg text-gray-400 mb-12">เรียนที่นี่แล้วได้อะไร? ให้พวกเขาเป็นคนเล่า</p>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 pt-20">
+                    <!-- Testimonial 1 -->
+                    <div class="bg-gray-800 p-8 rounded-xl shadow-lg">
+                        <img src="https://placehold.co/100x100/FBBF24/333?text=ศิษย์เก่า+1" alt="Alumni 1" class="w-24 h-24 rounded-full mx-auto -mt-20 border-4 border-gray-900">
+                        <blockquote class="mt-6">
+                            <p class="text-lg italic text-gray-300">"DM CRRU ให้มากกว่าความรู้ในห้องเรียน แต่ให้ Connection และโอกาสในการทำงานจริง ที่นี่คือจุดเริ่มต้นที่ดีที่สุดสำหรับคนอยากทำงานสื่อ"</p>
+                        </blockquote>
+                        <div class="mt-4">
+                            <p class="font-bold">อารยา มีชัย</p>
+                            <p class="text-sm text-yellow-400">Content Creator @ What The Fin</p>
+                        </div>
+                    </div>
+                     <!-- Testimonial 2 -->
+                    <div class="bg-gray-800 p-8 rounded-xl shadow-lg mt-12 lg:mt-0">
+                        <img src="https://placehold.co/100x100/34D399/333?text=ศิษย์เก่า+2" alt="Alumni 2" class="w-24 h-24 rounded-full mx-auto -mt-20 border-4 border-gray-900">
+                        <blockquote class="mt-6">
+                            <p class="text-lg italic text-gray-300">"อาจารย์ทุกท่านใส่ใจและพร้อมให้คำปรึกษาเสมอ สังคมที่นี่อบอุ่นเหมือนครอบครัว ทำให้การเรียน 4 ปีมีความสุขและได้พัฒนาตัวเองเต็มที่"</p>
+                        </blockquote>
+                        <div class="mt-4">
+                            <p class="font-bold">ธีรเดช พัฒนา</p>
+                            <p class="text-sm text-green-400">Video Editor @ Salmon House</p>
+                        </div>
+                    </div>
+                     <!-- Testimonial 3 -->
+                    <div class="bg-gray-800 p-8 rounded-xl shadow-lg mt-12 lg:mt-0">
+                        <img src="https://placehold.co/100x100/60A5FA/333?text=ศิษย์เก่า+3" alt="Alumni 3" class="w-24 h-24 rounded-full mx-auto -mt-20 border-4 border-gray-900">
+                        <blockquote class="mt-6">
+                            <p class="text-lg italic text-gray-300">"การได้ฝึกงานกับบริษัทชั้นนำที่สาขาฯ ติดต่อให้ คือประสบการณ์ที่เปิดโลกและทำให้เราพร้อมสำหรับการทำงานทันทีที่เรียนจบ"</p>
+                        </blockquote>
+                        <div class="mt-4">
+                            <p class="font-bold">วิภาวี เก่งกาจ</p>
+                            <p class="text-sm text-blue-400">Digital Marketer @ SCG</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. ข่าวสาร & กิจกรรม (News & Events) -->
+        <section id="news" class="py-20 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-2">ข่าวสารและกิจกรรม</h2>
+                <p class="text-lg text-gray-500 mb-12">ติดตามความเคลื่อนไหวล่าสุดของชาว DM CRRU</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
+                    <!-- News Card 1 -->
+                    <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition">
+                        <img src="https://placehold.co/600x400/cccccc/333?text=ข่าว+1" alt="News 1" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <p class="text-sm text-gray-500 mb-2">15 สิงหาคม 2568</p>
+                            <h3 class="text-lg font-bold mb-2">นักศึกษา DM CRRU คว้ารางวัลหนังสั้นยอดเยี่ยมระดับประเทศ</h3>
+                            <p class="text-gray-600 mb-4">ขอแสดงความยินดีกับทีม 'หมามองเครื่องบิน' ที่ได้รับรางวัล... </p>
+                            <a href="#" class="text-yellow-600 font-semibold hover:underline">อ่านต่อ &raquo;</a>
+                        </div>
+                    </div>
+                    <!-- News Card 2 -->
+                    <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition">
+                        <img src="https://placehold.co/600x400/dddddd/333?text=ข่าว+2" alt="News 2" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <p class="text-sm text-gray-500 mb-2">10 สิงหาคม 2568</p>
+                            <h3 class="text-lg font-bold mb-2">เปิดบ้าน DM CRRU Open House 2025 ต้อนรับน้องๆ ม.ปลาย</h3>
+                            <p class="text-gray-600 mb-4">กิจกรรมดีๆ ที่จะให้น้องๆ ได้มาสัมผัสบรรยากาศการเรียน... </p>
+                            <a href="#" class="text-yellow-600 font-semibold hover:underline">อ่านต่อ &raquo;</a>
+                        </div>
+                    </div>
+                    <!-- News Card 3 -->
+                    <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition">
+                        <img src="https://placehold.co/600x400/eeeeee/333?text=ข่าว+3" alt="News 3" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <p class="text-sm text-gray-500 mb-2">1 สิงหาคม 2568</p>
+                            <h3 class="text-lg font-bold mb-2">DM CRRU จับมือสตูดิโอชั้นนำ ส่งนักศึกษาฝึกงานจริง</h3>
+                            <p class="text-gray-600 mb-4">ลงนามความร่วมมือ (MOU) เพื่อสร้างโอกาสและประสบการณ์... </p>
+                            <a href="#" class="text-yellow-600 font-semibold hover:underline">อ่านต่อ &raquo;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. การรับสมัคร (Admissions) -->
+        <section id="admissions" class="py-20 bg-yellow-500 text-gray-900">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">มาเป็นครอบครัว DM CRRU ด้วยกัน!</h2>
+                <p class="text-lg max-w-3xl mx-auto mb-8">เรากำลังมองหานักสื่อสารสร้างสรรค์รุ่นใหม่ที่มีไฟและความฝัน มาร่วมเดินทางและเติบโตไปพร้อมกับเรา</p>
+                <div class="bg-white p-8 rounded-lg shadow-xl max-w-4xl mx-auto text-left text-gray-800">
+                    <h3 class="text-2xl font-bold mb-6">หลักสูตรนิเทศศาสตรบัณฑิต (นศ.บ.)</h3>
+                    <p class="mb-4 text-gray-600">สาขาวิชานิเทศศาสตร์ดิจิทัลมัลติมีเดีย</p>
+                    <div class="mb-8">
+                        <a href="https://ms.crru.ac.th/wp-content/uploads/2024/02/%E0%B8%AB%E0%B8%A5%E0%B8%B1%E0%B8%81%E0%B8%AA%E0%B8%B9%E0%B8%95%E0%B8%A3%E0%B8%99%E0%B8%B4%E0%B9%80%E0%B8%97%E0%B8%A8%E0%B8%A8%E0%B8%B2%E0%B8%AA%E0%B8%95%E0%B8%A3%E0%B8%9A%E0%B8%B1%E0%B8%93%E0%B8%91%E0%B8%B4%E0%B8%95-%E0%B8%81%E0%B8%B2%E0%B8%88%E0%B8%B1%E0%B8%94%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%AA%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%87%E0%B8%AA%E0%B8%A3.pdf" target="_blank" rel="noopener noreferrer" class="text-yellow-700 hover:text-yellow-800 hover:underline inline-flex items-center font-medium">
+                            <i data-lucide="file-text" class="w-4 h-4 mr-2"></i>
+                            ดาวน์โหลดรายละเอียดหลักสูตร (PDF)
+                        </a>
+                    </div>
+                    <h4 class="font-bold mb-4">กลุ่มวิชาเลือกที่น่าสนใจ:</h4>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <i data-lucide="film" class="w-6 h-6 text-yellow-600 mr-3 mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold">การผลิตภาพยนตร์และสื่อดิจิทัล</h4>
+                                <p class="text-sm text-gray-600">เรียนรู้กระบวนการสร้างสรรค์ภาพยนตร์และวิดีโอคอนเทนต์ทุกขั้นตอน</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                             <i data-lucide="share-2" class="w-6 h-6 text-yellow-600 mr-3 mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold">การสื่อสารการตลาดดิจิทัลและโซเชียลมีเดีย</h4>
+                                <p class="text-sm text-gray-600">วางแผนและสร้างสรรค์แคมเปญการตลาดออนไลน์ที่ทรงพลัง</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="lightbulb" class="w-6 h-6 text-yellow-600 mr-3 mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold">การสร้างสรรค์เนื้อหาดิจิทัล</h4>
+                                <p class="text-sm text-gray-600">พัฒนาทักษะการเล่าเรื่องและการผลิตคอนเทนต์สำหรับแพลตฟอร์มต่างๆ</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <a href="http://admission.crru.ac.th/" target="_blank" class="w-full block text-center bg-gray-800 hover:bg-black text-white font-bold py-4 px-8 rounded-lg text-xl transition duration-300 transform hover:scale-105">ระบบรับสมัครนักศึกษา มร.ชร.</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. ติดต่อเรา (Contact) -->
+        <section id="contact" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-2">ติดต่อเรา</h2>
+                    <p class="text-lg text-gray-500 mb-12">เราพร้อมตอบทุกคำถามและรับฟังทุกความคิดเห็น</p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12">
+                    <!-- Contact Info & Map -->
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-xl font-bold mb-4">สาขาวิชานิเทศศาสตร์ดิจิทัลมัลติมีเดีย</h3>
+                            <div class="space-y-4 text-gray-700">
+                                <p class="flex items-start"><i data-lucide="map-pin" class="w-5 h-5 mr-3 text-yellow-600 flex-shrink-0 mt-1"></i><span>มหาวิทยาลัยราชภัฏเชียงราย 80 หมู่ 9 ถนนพหลโยธิน ต.บ้านดู่ อ.เมือง จ.เชียงราย 57100</span></p>
+                                <p class="flex items-center"><i data-lucide="phone" class="w-5 h-5 mr-3 text-yellow-600"></i><a href="tel:053776000" class="hover:underline">053-776-000</a></p>
+                                <p class="flex items-center"><i data-lucide="mail" class="w-5 h-5 mr-3 text-yellow-600"></i><a href="mailto:dm.crru@crru.ac.th" class="hover:underline">dm.crru@crru.ac.th (ตัวอย่าง)</a></p>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-4">แผนที่</h3>
+                            <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-md">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3765.808022877148!2d99.8519968148523!3d19.97467778672108!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30d7010ca4a77329%3A0x1d75596b6a378e9!2sChiang%20Rai%20Rajabhat%20University!5e0!3m2!1sen!2sth!4v1662625000000!5m2!1sen!2sth" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="bg-gray-50 p-8 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold mb-6">ส่งข้อความถึงเรา</h3>
+                        <form action="#" method="POST" class="space-y-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700">ชื่อ-นามสกุล</label>
+                                <input type="text" name="name" id="name" required class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-yellow-500 focus:border-yellow-500">
+                            </div>
+                             <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700">อีเมล</label>
+                                <input type="email" name="email" id="email" required class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-yellow-500 focus:border-yellow-500">
+                            </div>
+                             <div>
+                                <label for="subject" class="block text-sm font-medium text-gray-700">หัวข้อ</label>
+                                <input type="text" name="subject" id="subject" required class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-yellow-500 focus:border-yellow-500">
+                            </div>
+                             <div>
+                                <label for="message" class="block text-sm font-medium text-gray-700">ข้อความ</label>
+                                <textarea id="message" name="message" rows="4" required class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-yellow-500 focus:border-yellow-500"></textarea>
+                            </div>
+                            <div>
+                                <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-yellow-600 hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500">ส่งข้อความ</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <p>&copy; 2568 สาขาวิชานิเทศศาสตร์ดิจิทัลมัลติมีเดีย. สงวนลิขสิทธิ์.</p>
+            <p class="text-sm text-gray-400 mt-2">มหาวิทยาลัยราชภัฏเชียงราย</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Change navbar style on scroll
+        const header = document.getElementById('header');
+        const navLinks = header.querySelectorAll('nav a'); // Selects all links, including the new logo
+        const logoSubtitle = document.getElementById('logo-subtitle'); // Use ID for easy access
+        const mobileButtonIcon = mobileMenuButton.querySelector('i');
+
+        window.addEventListener('scroll', () => {
+            const isScrolled = window.scrollY > 50;
+
+            header.classList.toggle('bg-white/80', isScrolled);
+            header.classList.toggle('backdrop-blur-md', isScrolled);
+            header.classList.toggle('shadow-lg', isScrolled);
+            
+            navLinks.forEach(link => {
+                link.classList.toggle('text-white', !isScrolled);
+                link.classList.toggle('text-gray-800', isScrolled);
+            });
+            
+            mobileMenuButton.classList.toggle('text-white', !isScrolled);
+            mobileMenuButton.classList.toggle('text-gray-800', isScrolled);
+
+            if(logoSubtitle) {
+                logoSubtitle.classList.toggle('border-white/50', !isScrolled);
+                logoSubtitle.classList.toggle('border-gray-500/50', isScrolled);
+            }
+        });
+
+        // Hero Video Controls
+        const heroVideo = document.getElementById('hero-video');
+        const muteButton = document.getElementById('mute-button');
+        const volumeIcon = document.getElementById('volume-icon');
+        const videoOverlay = document.getElementById('video-overlay');
+
+        if (heroVideo && muteButton && volumeIcon && videoOverlay) {
+            // Mute/Unmute functionality
+            muteButton.addEventListener('click', () => {
+                heroVideo.muted = !heroVideo.muted;
+                volumeIcon.setAttribute('data-lucide', heroVideo.muted ? 'volume-x' : 'volume-2');
+                lucide.createIcons();
+            });
+
+            // Fullscreen functionality on overlay click
+            videoOverlay.addEventListener('click', () => {
+                if (document.fullscreenElement) {
+                    document.exitFullscreen();
+                } else {
+                    heroVideo.requestFullscreen().catch(err => {
+                        console.error(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+                    });
+                }
+            });
+        }
+    </script>
+</body>
+</html>
+
